@@ -1,0 +1,106 @@
+<html lang="en">
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+        <link rel="stylesheet" href="login.css">
+        <title>document</title>
+    
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="heading">
+                <h1>Login</h1>
+            </div>
+                      
+
+        
+
+            <form name="myForm" onsubmit="return non()">
+               
+            
+         <span>
+    <i class="fa-solid fa-user"></i>
+    <input type="text" name="Username" placeholder="Username">
+</span><br>
+<span>
+    <i class="fa-solid fa-envelope"></i>
+    <input type="text" name="Email" placeholder="Email">
+</span><br>
+
+<span>
+    <i class="fa-solid fa-phone"></i>
+    <input type="text" name="Phone_number" placeholder="Phone number" >
+    <span id = "messages" style="color:rgba(170, 47, 47, 0.801)"></span>
+</span><br>
+
+<span>
+    <i class="fa-solid fa-key"></i>
+    <input type="password" name="Password" placeholder="Password">
+</span><br>
+
+<span>
+        <i class="fa-solid fa-key"></i>
+        <input type="password" name="Password2" placeholder="Confirm Password">
+        <span id = "messages1" style="color:rgba(170, 47, 47, 0.801)"></span>
+</span>
+<input type="submit" value="Register" class="my">
+
+     </form>
+    </div>
+    
+<script>
+function non(){
+    Username=document.myForm.Username.value;
+    Password=document.myForm.Password.value;
+    Password2=document.myForm.Password2.value;
+    Phone_number=document.myForm.Phone_number.value;
+    
+    var x = document.myForm.Email.value;
+    var atposition=x.indexOf("@");
+    var dotposition=x.lastIndexOf(".");
+
+
+
+if (Username==null || Username==""){
+ alert("Username not found");
+  return false;
+
+}else if(Password.length<8){
+alert("Password most be 8 digit and more");
+return false;
+
+}else if(isNaN(Phone_number)){
+    document.getElementById("messages").innerHTML="**phone most be number**";
+    return false;
+
+}else if(Phone_number.length>10 || Phone_number.length<10){
+    document.getElementById("messages").innerHTML="**phone number most be 10 digit**";
+    return false;
+
+}else if((Phone_number.charAt(0)!=0) || (Phone_number.charAt(1)!=5)){
+    document.getElementById("messages").innerHTML="**phone number most be start with 05**";
+return false;
+
+}else if (atposition<1 || dotposition<atposition+2 || dotposition+2>=x.length){
+     alert("الرجاء ادخل ايميل صحيح \n استخدام @ "+atposition+"\n استخدام . "+dotposition);
+ return false;
+
+}else if(Password!=Password2){
+document.getElementById("messages1").innerHTML="**Passwords don't match**";
+return false;
+}
+}
+</script>
+
+
+
+
+
+
+
+</script>
+    </body>
+</html>
